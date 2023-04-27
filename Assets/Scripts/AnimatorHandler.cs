@@ -21,11 +21,11 @@ namespace BW
         public void UpdateAnimatorValues(float verticalMovement, float horizontalMovement)
         {
             #region Vertical
-            float v = 0
+            float v = 0;
 
             if (verticalMovement > 0 && verticalMovement < 0.55f)
             {
-                v = 0.5f
+                v = 0.5f;
             }
             else if (verticalMovement > 0.55f)
             {
@@ -37,20 +37,20 @@ namespace BW
             }
             else if (verticalMovement < -0.55f)
             {
-                v = -1f
+                v = -1f;
             }
             else
             {
-                v = 0
+                v = 0;
             }
             #endregion
 
             #region Horizontal
-            float h = 0
+            float h = 0;
 
             if (horizontalMovement > 0 && horizontalMovement < 0.55f)
             {
-                h = 0.5f
+                h = 0.5f;
             }
             else if (horizontalMovement > 0.55f)
             {
@@ -62,11 +62,11 @@ namespace BW
             }
             else if (horizontalMovement < -0.55f)
             {
-                h = -1f
+                h = -1f;
             }
             else
             {
-                h = 0
+                h = 0;
             }
             #endregion
 
