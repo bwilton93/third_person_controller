@@ -2,17 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+namespace BW
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerMovement : MonoBehaviour
     {
-        
-    }
+        Transform cameraObject;
+        InputHandler inputHandle;
+        Vector3 moveDirection;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [HideInInspector]
+        public Transform myTransform;
+
+
+        public new Rigidbody rigidbody;
+        public GameObject normalCamera;
+
+        [Header("Stats")]
+        [SerializeField]
+        float movementSpeed = 5f;
+        [SerializeField]
+        float rotationSpeed = 10f;
+
+        void Start()
+        {
+
+        }
     }
 }
