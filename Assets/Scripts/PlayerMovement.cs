@@ -7,7 +7,7 @@ namespace BW
     public class PlayerMovement : MonoBehaviour
     {
         Transform cameraObject;
-        InputHandler inputHandle;
+        InputHandler inputHandler;
         Vector3 moveDirection;
 
         [HideInInspector]
@@ -25,7 +25,10 @@ namespace BW
 
         void Start()
         {
-
+            rigidbody = GetComponent<Rigidbody>();
+            inputHandler = GetComponent<InputHandler>();
+            cameraObject = Camera.main.transform;
+            myTransform = transform
         }
     }
 }
