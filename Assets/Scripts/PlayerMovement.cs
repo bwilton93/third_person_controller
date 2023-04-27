@@ -32,6 +32,7 @@ namespace BW
             animatorHandler = GetComponentInChildren<AnimatorHandler>();
             cameraObject = Camera.main.transform;
             myTransform = transform;
+            animatorHandler.Initialize();
         }
 
         public void Update()
