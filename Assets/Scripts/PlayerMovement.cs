@@ -28,7 +28,24 @@ namespace BW
             rigidbody = GetComponent<Rigidbody>();
             inputHandler = GetComponent<InputHandler>();
             cameraObject = Camera.main.transform;
-            myTransform = transform
+            myTransform = transform;
+        }
+
+        public void Update()
+        {
+            float delta = Time.deltaTime;
+
+            inputHandler.TickInput(delta);
+
+            moveDirection = cameraObject.forward * inputHandler.vertical;
+            moveDirection += cameraObject.right * inputHandler.horizontal;
+            moveDirection.Normalize();
+
+            float speed = movementSpeed;
+            moveDirection *= speed;
+
+            Vector3 projectedVelocity = Vector3.ProjectOnPlane(moveDirection, normalVector);
+            rigidbody.velocity = projectedVelocity;
         }
 
         #region Movement
@@ -53,8 +70,8 @@ namespace BW
 
             float rs = rotationSpeed;
 
-            Quarternion tr = Quarternion.LookRotation(targetDir);
-            Quarternion targetRotation = Quarternion.Slerp(myTransform.rotation, tr, rs * delta);
+            Quaternion tr = Quaternion.LookRotation(targetDir);
+            Quaternion targetRotation = Quaternion.Slerp(myTransform.rotation, tr, rs * delta);
 
             myTransform.rotation = targetRotation;
         }
